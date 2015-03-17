@@ -1,6 +1,21 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // marked.setOptions({ renderer: Renderer() });
-  document.getElementById('content').innerHTML =
-      marked('I am using __markdown__.');
+$(document).ready(function() {
+
+    marked.setOptions({renderer: ConfluenceRenderer()});
+
+    $('#convert').click(function() {
+        var input = $('#input').val(),
+            output = marked(input);
+
+        $('#output').val(output);
+    });
+
+    $('#clear').click(function() {
+        $('#input').val('');
+        $('#output').val('');
+
+    });
+
 });
+
+
 
